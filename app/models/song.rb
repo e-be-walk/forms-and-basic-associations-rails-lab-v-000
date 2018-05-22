@@ -19,15 +19,15 @@ class Song < ActiveRecord::Base
     self.try(:genre).try(:name)
   end
 
-  def note_contents=(contents) 
+  def note_contents=(contents)
     contents = contents.reject {|content| content.empty?}
     contents.each do |content|
       note = Note.find_or_create_by(content: content)
-      self.notes << note 
-    end 
-  end 
+      self.notes << note
+    end
+  end
 
-  def note_contents 
+  def note_contents
     self.notes.map{|note| note.content}
   end 
 
