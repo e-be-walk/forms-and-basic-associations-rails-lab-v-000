@@ -5,19 +5,18 @@ class Song < ActiveRecord::Base
 
   def artist_name=(name)
     self.artist = Artist.find_or_create_by(name: name)
-  end 
+  end
 
-  def artist_name 
+  def artist_name
     self.try(:artist).try(:name)
-  end 
+  end
 
   def genre_name=(name)
     self.genre = Genre.find_or_create_by(name: name)
-  end 
+  end
 
-  def genre_name 
+  def genre_name
     self.try(:genre).try(:name)
-  end 
-  
-end
+  end
 
+end
